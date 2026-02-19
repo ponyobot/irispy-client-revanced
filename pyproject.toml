@@ -1,0 +1,20 @@
+[project]
+name = "irispy-client"
+version = "0.2.2"
+description = "An Iris bot client in Python"
+authors = [{ name = "dolidolih", email = "dolidolih@proton.me" }]
+requires-python = ">=3.9"
+readme = "README.md"
+dependencies = [
+    "requests",
+    "websockets",
+    "pillow",
+    "httpx"
+]
+
+[project.urls]
+Homepage = "https://github.com/dolidolih/irispy-client"
+Repository = "https://github.com/dolidolih/irispy-client"
+
+[project.scripts]
+iris = "iris.cli:main"
