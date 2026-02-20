@@ -197,8 +197,8 @@ SQLite를 사용하는 간단한 키-값 저장소입니다. 이 클래스는 �
 - `@is_manager`: 메시지를 보낸 사용자의 타입이 MANAGER인 경우에만 함수를 실행합니다.
 
 ## Special Thanks
-Irispy2 and Kakaolink by @ye-seola
-irispy-client by dolidolih
+- Irispy2 and Kakaolink by @ye-seola
+- irispy-client by @dolidolih
 
 ## 수정한 파이썬 라이브러리
 - [irispy-client GitHub](https://github.com/dolidolih/irispy-client)
