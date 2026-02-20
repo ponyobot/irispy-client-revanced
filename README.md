@@ -198,6 +198,7 @@ SQLite를 사용하는 간단한 키-값 저장소입니다. 이 클래스는 �
 
 ## Special Thanks
 Irispy2 and Kakaolink by @ye-seola
+irispy-client by dolidolih
 
 ## 수정한 파이썬 라이브러리
 - [irispy-client GitHub](https://github.com/dolidolih/irispy-client)

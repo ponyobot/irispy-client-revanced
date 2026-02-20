@@ -1,12 +1,12 @@
 from dataclasses import dataclass
-import json
+import json # 추가됨
 import requests
 import typing as t
 import base64
 import os # 추가됨
 from io import BufferedIOBase, BytesIO, BufferedReader
 from PIL import Image
-from urllib.parse import urlparse, unquote
+from urllib.parse import urlparse, unquote # 추가됨
 
 @dataclass
 class IrisRequest:
