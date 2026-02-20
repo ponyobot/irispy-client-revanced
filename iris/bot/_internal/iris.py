@@ -3,7 +3,7 @@ import json
 import requests
 import typing as t
 import base64
-import os
+import os # 추가됨
 from io import BufferedIOBase, BytesIO, BufferedReader
 from PIL import Image
 from urllib.parse import urlparse, unquote
@@ -118,6 +118,7 @@ class IrisAPI:
         res = requests.get(f"{self.iris_endpoint}/aot")
         return self.__parse(res)
 
+    # 추가됨
     def reply_audio(
         self,
         room_id: int,
@@ -348,3 +349,4 @@ class IrisAPI:
             return self.__parse(res)
         else:
             print("No valid files to send.")
+    # 추가끝

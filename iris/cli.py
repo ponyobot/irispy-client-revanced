@@ -440,6 +440,26 @@ def handle_service_status(args):
     # Status command output is usually what the user wants to see directly
     _run_systemctl_command("status", service_name, use_sudo=True, capture_output=True)
 
+# 추가됨
+def handle_melon_kakaolink(args):
+    if args.melon_action == "on":
+        try:
+            kv.put("melon_kakaolink_config", {
+                "app_key": "4d545a185d172754667d621049004aa1",
+                "origin": "https://melon.com"
+            })
+            print("melon_Kakaolink has been activated")
+        except Exception as e:
+            print(f"Error storing melon_kakaolink_config: {e}", file=sys.stderr)
+
+    elif args.melon_action == "off":
+        try:
+            kv.delete("melon_kakaolink_config")
+            print("melon_kakaolink has been deactivated")
+        except Exception as e:
+            print(f"Error deleting melon_kakaolink_config: {e}", file=sys.stderr)
+# 추가끝
+
 
 # --- Main Parser Setup ---
 
@@ -460,6 +480,16 @@ def main():
     parser_kakaolink.add_argument("app_key", help="Your Kakaolink application key.")
     parser_kakaolink.add_argument("origin", help="Your Kakaolink service origin URL (e.g., https://example.com).")
     parser_kakaolink.set_defaults(func=handle_kakaolink)
+    
+    # 추가됨
+    # --- iris melon_kakaolink ---
+    parser_melon = subparsers.add_parser("melon_kakaolink", help="Enable or disable Melon KakaoLink.")
+    melon_subparsers = parser_melon.add_subparsers(dest="melon_action", required=True, help="on: activated, off: deactivated")
+    melon_on = melon_subparsers.add_parser("on", help="melon_kakaolink has been activated.")
+    melon_on.set_defaults(func=handle_melon_kakaolink)
+    melon_off = melon_subparsers.add_parser("off", help="melon_kakaolink has been deactivated.")
+    melon_off.set_defaults(func=handle_melon_kakaolink)
+    # 추가끝
 
     # --- iris admin ---
     parser_admin = subparsers.add_parser("admin", help="Manage admin user IDs stored in iris.db.")

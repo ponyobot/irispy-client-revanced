@@ -147,6 +147,7 @@ IrisLink(iris_url: str)
 **메서드:**
 
 - `send(receiver_name: str, template_id: int, template_args: dict, **kwargs)`: 카카오링크 메시지를 보냅니다.
+- `send_melon(receiver_name: str, template_id: int, template_args: dict, **kwargs)`: 멜론 카카오링크 메세지를 보냅니다.
 
 **예제:**
 
@@ -157,6 +158,12 @@ link = IrisLink("127.0.0.1:3000")
 link.send(
     receiver_name="내 채팅방",
     template_id=12345,
+    template_args={"key": "value"}
+)
+
+link.send_melon(
+    receiver_name="내 채팅방",
+    template_id=17141,
     template_args={"key": "value"}
 )
 ```
